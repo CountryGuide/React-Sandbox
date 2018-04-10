@@ -3,9 +3,15 @@
     "version": "0.0.0",
     "description": "React/Node sandbox",
     "main": "app.js",
+    "engines": {
+        "node": "8.9.4",
+        "npm": "5.6.0"
+    },
     "scripts": {
-        "server": "node bin/www",
-        "server:dev": "set DEBUG=reactapp:* & nodemon bin/www"
+        "start": "node bin/www",
+        "server": "set DEBUG=reactapp:* & nodemon bin/www",
+        "client": "set PORT=3060 & npm run start --prefix client",
+        "dev": "concurrently \"npm run server\" \"npm run client\""
     },
     "repository": {
         "type": "git",
@@ -19,6 +25,7 @@
     "homepage": "https://github.com/CountryGuide/React-Sandbox#readme",
     "dependencies": {
         "body-parser": "^1.18.2",
+        "concurrently": "^3.5.1",
         "cookie-parser": "^1.4.3",
         "debug": "^3.1.0",
         "express": "^4.16.3",
