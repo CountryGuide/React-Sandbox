@@ -1,9 +1,8 @@
-const express = require('express');
-const router  = express.Router();
-
-/* GET home page. */
-router.get('/', function (req, res, next) {
-    res.render('index', { title: 'Express' });
-});
-
-module.exports = router;
+module.exports = (app) => {
+    app.get(
+        '/api',
+        (req, res) => {
+            res.send('Hello from API');
+        }
+    );
+};
