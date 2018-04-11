@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import axios from 'axios';
+import Header from "./Header";
+import Footer from "./Footer";
+
+import '../style/App.css';
 
 
 class App extends Component {
@@ -25,19 +29,25 @@ class App extends Component {
     render() {
         return (
             <BrowserRouter>
-                <Route>
-                    <div style={{ textAlign: 'center', marginTop: 200 }}>
-                        <header>
-                            <h1>Welcome, {this.state.user ? this.state.user.displayName : "User"}</h1>
-                        </header>
-                        <p>
-                            To get started, edit <code>src/App.js</code> and save to reload.
-                        </p>
-                        <p>
-                            {this.renderAuthSection()}
-                        </p>
+                <div className="app-container uk-light">
+                    <Header/>
+                    <div className="main uk-container uk-margin-top">
+                        <Route>
+                            <div>
+                                <div>
+                                    <h1>Welcome, {this.state.user ? this.state.user.displayName : "User"}</h1>
+                                </div>
+                                <p>
+                                    To get started, edit <code>src/App.js</code> and save to reload.
+                                </p>
+                                <p>
+                                    {this.renderAuthSection()}
+                                </p>
+                            </div>
+                        </Route>
                     </div>
-                </Route>
+                    <Footer/>
+                </div>
             </BrowserRouter>
         );
     }
