@@ -31,3 +31,5 @@ npm-debug.log
 
 # WebStorm settings
 .idea
+
+config/dev.js
