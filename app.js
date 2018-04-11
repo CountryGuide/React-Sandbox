@@ -1,10 +1,10 @@
-const express      = require('express');
-const path         = require('path');
-const logger       = require('morgan');
-const cookieParser = require('cookie-parser');
+const express       = require('express');
+const path          = require('path');
+const logger        = require('morgan');
+const cookieParser  = require('cookie-parser');
 const cookieSession = require('cookie-session');
 const passport      = require('passport');
-const bodyParser   = require('body-parser');
+const bodyParser    = require('body-parser');
 const mongoose      = require('mongoose');
 const keys          = require('./config/keys');
 
