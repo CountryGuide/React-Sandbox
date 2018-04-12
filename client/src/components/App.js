@@ -1,29 +1,20 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import axios from 'axios';
 import Header from "./Header";
 import Footer from "./Footer";
 
 import '../style/App.css';
+import { fetchUser } from "../actions/auth";
+import { connect } from "react-redux";
 
+
+const mapStateToProps = ({ auth }) => {
+    return auth;
+};
 
 class App extends Component {
-    state = {};
-
-    async componentDidMount() {
-        const user = await axios.get('/api/current_user');
-        this.setState({ user: user.data });
-    }
-
-    renderAuthSection() {
-        const className = "uk-button uk-button-default uk-button-small uk-flex-inline uk-flex-middle";
-        if (this.state.user) {
-            return <a href="/api/logout" className={className}>Logout</a>
-        }
-
-        return <a className={className} href="/auth/google">
-            <span data-uk-icon="google" className="uk-margin-small-right"></span>Login
-        </a>
+    componentDidMount() {
+        this.props.fetchUser();
     }
 
     render() {
@@ -31,17 +22,18 @@ class App extends Component {
             <BrowserRouter>
                 <div className="app-container uk-light">
                     <Header/>
-                    <div className="main uk-container uk-margin-top">
+                    <div className="main uk-margin-medium-left uk-margin-medium-right uk-margin-top">
                         <Route>
                             <div>
                                 <div>
-                                    <h1>Welcome, {this.state.user ? this.state.user.displayName : "User"}</h1>
+                                    <h1 className="uk-heading-line uk-text-center">
+                                        <span>
+                                            Welcome, {this.props.authState ? this.props.authState.displayName : 'User'}
+                                        </span>
+                                    </h1>
                                 </div>
                                 <p>
                                     To get started, edit <code>src/App.js</code> and save to reload.
-                                </p>
-                                <p>
-                                    {this.renderAuthSection()}
                                 </p>
                             </div>
                         </Route>
@@ -54,4 +46,4 @@ class App extends Component {
 }
 
 
-export default App;
+export default connect(mapStateToProps, { fetchUser })(App);
