@@ -28,10 +28,10 @@ class App extends Component {
                 <div className="app-container uk-light">
                     <Header/>
                     <div className="main uk-margin-medium-left uk-margin-medium-right uk-margin-top">
-                        <Switch>
+                        {/*<Switch>*/}
                             <Route exact path="/" render={() => <Landing {...this.props}/>}/>
-                            <Route component={NoMatch}/>
-                        </Switch>
+                            {/*<Route component={NoMatch}/>*/}
+                        {/*</Switch>*/}
                     </div>
                     <Footer/>
                 </div>
