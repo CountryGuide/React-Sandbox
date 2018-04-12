@@ -1,6 +1,7 @@
 const express       = require('express');
 const path          = require('path');
 const logger        = require('morgan');
+const compression = require('compression');
 const cookieParser  = require('cookie-parser');
 const cookieSession = require('cookie-session');
 const passport      = require('passport');
@@ -18,6 +19,7 @@ mongoose.connect(keys.mongoURI)
 
 const app = express();
 
+app.use(compression());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
