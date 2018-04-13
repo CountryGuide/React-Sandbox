@@ -41,7 +41,9 @@ class Header extends React.Component {
                 <nav className="uk-navbar-container uk-navbar-transparent" data-uk-navbar="mode:click">
                     <div className="uk-navbar-left">
                         <ul className="uk-navbar-nav">
-                            <Link to="/" className="uk-logo uk-navbar-item">React</Link>
+                            <Link to="/" className="uk-logo uk-navbar-item">
+                                <span data-uk-icon="home"></span>
+                            </Link>
                         </ul>
                     </div>
                     <div className="uk-navbar-right">
