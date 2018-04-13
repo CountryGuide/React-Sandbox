@@ -1,7 +1,8 @@
 const express       = require('express');
+const sslRedirect   = require('heroku-ssl-redirect');
 const path          = require('path');
 const logger        = require('morgan');
-const compression = require('compression');
+const compression   = require('compression');
 const cookieParser  = require('cookie-parser');
 const cookieSession = require('cookie-session');
 const passport      = require('passport');
@@ -19,6 +20,7 @@ mongoose.connect(keys.mongoURI)
 
 const app = express();
 
+app.use(sslRedirect());
 app.use(compression());
 app.use(logger('dev'));
 app.use(bodyParser.json());
