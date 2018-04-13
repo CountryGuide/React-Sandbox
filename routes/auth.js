@@ -9,7 +9,7 @@ module.exports = (app) => {
     );
     app.get(
         '/auth/google/callback',
-        passport.authenticate('google'),
+        passport.authenticate('google', { prompt: 'select_account' }),
         (req, res) => {
             res.redirect('/');
         }

@@ -10,7 +10,7 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser(async (id, done) => {
-    const user = await User.findById(id);
+    const user = await User.findById(id).cache({ key: id });
     done(null, user);
 });
 
@@ -20,6 +20,7 @@ passport.use(
             clientID:     keys.googleClientID,
             clientSecret: keys.googleClientSecret,
             callbackURL:  '/auth/google/callback',
+            prompt:       'select_account',
             proxy:        true
         },
         async (accessToken, refreshToken, profile, done) => {
@@ -27,7 +28,7 @@ passport.use(
 
             if (!user) {
                 user = await new User({
-                    googleId: profile.id,
+                    googleId:    profile.id,
                     displayName: profile.displayName
                 }).save();
             }

@@ -12,7 +12,9 @@ const keys          = require('./config/keys');
 
 
 require('./models/User');
+require('./models/Post');
 require('./services/passport');
+require('./services/cache');
 
 mongoose.connect(keys.mongoURI)
     .then(() => console.log('Connected to MongoDB'))
@@ -38,6 +40,7 @@ app.use(passport.session());
 
 require('./routes/index')(app);
 require('./routes/auth')(app);
+require('./routes/posts')(app);
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, 'client', 'build')));
