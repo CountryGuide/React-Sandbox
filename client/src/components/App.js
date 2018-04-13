@@ -27,7 +27,7 @@ class App extends Component {
             <BrowserRouter>
                 <div className="app-container uk-light">
                     <Header/>
-                    <div className="main uk-margin-medium-left uk-margin-medium-right uk-margin-top">
+                    <div className="main uk-container uk-margin-top uk-width-2-3@l uk-width-4-5@m">
                         <Switch>
                             <Route exact path="/" render={() => <Landing {...this.props}/>}/>
                             <Route component={NoMatch}/>

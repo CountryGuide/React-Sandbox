@@ -8,7 +8,7 @@
 
 ::-webkit-scrollbar-thumb {
     border-radius: 5px;
-    background-color: #222;
+    background-color: #666;
 }
 
 .app-container {
@@ -16,6 +16,6 @@
     grid-template-areas: "header" "main" "footer";
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
-    background: radial-gradient(hsla(0, 0%, 0%, 0.89) 50%, hsla(0, 0%, 0%, 0.85) 50%);
+    background: radial-gradient(hsla(0, 0%, 0%, 0.89) 50%, hsla(0, 0%, 0%, 0.85) 50%) fixed;
     background-size: 5px 5px;
 }
