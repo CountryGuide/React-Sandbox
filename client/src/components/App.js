@@ -27,12 +27,26 @@ class App extends Component {
             <BrowserRouter>
                 <div className="app-container uk-light">
                     <Header/>
-                    <div className="main uk-container uk-margin-top uk-width-2-3@l uk-width-4-5@m">
+                    <main className="main uk-container uk-margin-top uk-width-2-3@l uk-width-4-5@m">
                         <Switch>
                             <Route exact path="/" render={() => <Landing {...this.props}/>}/>
                             <Route component={NoMatch}/>
                         </Switch>
-                    </div>
+                    </main>
+                    <aside className="side-menu">
+                        <div className="uk-flex uk-flex-center uk-flex-middle">
+                            <span data-uk-icon="user"></span>
+                        </div>
+                        <div className="uk-flex uk-flex-center uk-flex-middle">
+                            <span data-uk-icon="cloud-upload"></span>
+                        </div>
+                        <div className="uk-flex uk-flex-center uk-flex-middle">
+                            <span data-uk-icon="github-alt"></span>
+                        </div>
+                        <div className="uk-flex uk-flex-center uk-flex-middle">
+                            <span data-uk-icon="database"></span>
+                        </div>
+                    </aside>
                     <Footer/>
                 </div>
             </BrowserRouter>

@@ -13,9 +13,31 @@
 
 .app-container {
     display: grid;
-    grid-template-areas: "header" "main" "footer";
+    grid-template-areas: "header header" "side-menu main" "footer footer";
     grid-template-rows: auto 1fr auto;
+    grid-template-columns: 50px 1fr;
     min-height: 100vh;
     background: radial-gradient(hsla(0, 0%, 0%, 0.89) 50%, hsla(0, 0%, 0%, 0.85) 50%) fixed;
     background-size: 5px 5px;
+}
+
+.header {
+    grid-area: header;
+}
+
+.main {
+    grid-area: main;
+}
+
+.side-menu {
+    grid-area: side-menu;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.footer {
+    grid-area: footer;
+}
+
+.side-menu div {
+    height: 50px;
 }
