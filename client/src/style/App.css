@@ -13,7 +13,7 @@
 
 .app-container {
     display: grid;
-    grid-template-areas: "header header" "side-menu main" "footer footer";
+    grid-template-areas: "side-menu header" "side-menu main" "side-menu footer";
     grid-template-rows: auto 1fr auto;
     grid-template-columns: 50px 1fr;
     min-height: 100vh;
@@ -36,8 +36,4 @@
 
 .footer {
     grid-area: footer;
-}
-
-.side-menu div {
-    height: 50px;
 }

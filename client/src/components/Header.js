@@ -16,7 +16,7 @@ class Header extends React.Component {
 
         if (this.props.authState) {
             return (
-                <a href="/api/logout" className={className} onClick={() => localStorage.removeItem('user')}>
+                <a href={"/api/logout"} className={className} onClick={() => localStorage.removeItem('user')}>
                     <div className="uk-flex uk-flex-middle">
                         <span data-uk-icon="sign-out" className="uk-margin-small-right uk-margin-small-left"></span>
                         Logout
@@ -26,7 +26,7 @@ class Header extends React.Component {
         }
 
         return (
-            <a className={className} href="/auth/google">
+            <a className={className} href={"/auth/google"}>
                 <div className="uk-flex uk-flex-middle">
                     <span data-uk-icon="google" className="uk-margin-small-right uk-margin-small-left"></span>
                     Login
@@ -39,13 +39,6 @@ class Header extends React.Component {
         return (
             <header className="header">
                 <nav className="uk-navbar-container uk-navbar-transparent" data-uk-navbar="mode:click">
-                    <div className="uk-navbar-left">
-                        <ul className="uk-navbar-nav">
-                            <Link to="/" className="uk-logo uk-navbar-item">
-                                <span data-uk-icon="home"></span>
-                            </Link>
-                        </ul>
-                    </div>
                     <div className="uk-navbar-right">
                         <ul className="uk-navbar-nav">
                             <li>

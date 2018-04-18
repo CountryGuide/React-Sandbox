@@ -6,11 +6,11 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { Landing } from "./Landing";
 import { NoMatch } from "./NoMatch";
+import { SideMenu } from "./SideMenu";
 
 import { fetchUser } from "../actions/auth";
 
 import '../style/App.css';
-import { SideMenu } from "./SideMenu";
 
 
 const mapStateToProps = ({ auth }) => {
@@ -23,7 +23,12 @@ class App extends Component {
         this.props.fetchUser();
     }
 
+    shouldComponentUpdate(nextProps) {
+        return JSON.stringify(nextProps) !== JSON.stringify(this.props);
+    }
+
     render() {
+        console.log('<App /> render', this.props);
         return (
             <BrowserRouter>
                 <div className="app-container uk-light">

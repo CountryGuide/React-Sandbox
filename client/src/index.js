@@ -11,6 +11,7 @@ import reduxThunk from 'redux-thunk';
 import { applyMiddleware, compose, createStore } from "redux";
 import { Provider } from "react-redux";
 import { reducers } from './reducers';
+import { getInitialState } from "./utils/preloadedState";
 
 
 UIkit.use(Icons);
@@ -18,7 +19,12 @@ window.axios = axios;
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(reducers, {}, composeEnhancers(applyMiddleware(reduxThunk)));
+const store = createStore(reducers, getInitialState(), composeEnhancers(applyMiddleware(reduxThunk)));
 
-ReactDOM.render(<Provider store={store}><App/></Provider>, document.getElementById('root'));
+ReactDOM.render(
+    <Provider store={store}>
+        <App/>
+    </Provider>,
+    document.getElementById('root')
+);
 // registerServiceWorker();
