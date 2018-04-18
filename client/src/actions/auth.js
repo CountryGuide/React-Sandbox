@@ -3,7 +3,14 @@ import { ActionTypes } from "./types";
 
 
 export const fetchUser = () => async dispatch => {
-    const user = await axios.get('/api/current_user');
+    let user = JSON.parse(localStorage.getItem('user'));
 
-    dispatch({ type: ActionTypes.FETCH_USER, payload: { user: user.data } });
+    if (!user) {
+        user = await axios.get('/api/current_user');
+        user = user.data;
+
+        user && localStorage.setItem('user', JSON.stringify(user));
+    }
+
+    dispatch({ type: ActionTypes.FETCH_USER, payload: { user } });
 };

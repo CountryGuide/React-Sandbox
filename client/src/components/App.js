@@ -10,6 +10,7 @@ import { NoMatch } from "./NoMatch";
 import { fetchUser } from "../actions/auth";
 
 import '../style/App.css';
+import { SideMenu } from "./SideMenu";
 
 
 const mapStateToProps = ({ auth }) => {
@@ -33,20 +34,7 @@ class App extends Component {
                             <Route component={NoMatch}/>
                         </Switch>
                     </main>
-                    <aside className="side-menu">
-                        <div className="uk-flex uk-flex-center uk-flex-middle">
-                            <span data-uk-icon="user"></span>
-                        </div>
-                        <div className="uk-flex uk-flex-center uk-flex-middle">
-                            <span data-uk-icon="cloud-upload"></span>
-                        </div>
-                        <div className="uk-flex uk-flex-center uk-flex-middle">
-                            <span data-uk-icon="github-alt"></span>
-                        </div>
-                        <div className="uk-flex uk-flex-center uk-flex-middle">
-                            <span data-uk-icon="database"></span>
-                        </div>
-                    </aside>
+                    <SideMenu/>
                     <Footer/>
                 </div>
             </BrowserRouter>
