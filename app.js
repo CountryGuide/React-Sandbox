@@ -18,7 +18,12 @@ require('./services/cache');
 
 mongoose.connect(keys.mongoURI)
     .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.log(err));
+    .catch(err => {
+        console.log(err);
+        mongoose.connect('mongodb://127.0.0.1:27017')
+            .then(() => console.log('Connected to local MongoDB'))
+            .catch(err => console.log(err))
+    });
 
 const app = express();
 
