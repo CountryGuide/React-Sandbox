@@ -10,7 +10,8 @@ const mapStateToProps = ({ auth }) => {
     return auth;
 };
 
-class Header extends React.Component {
+
+class HeaderComponent extends React.Component {
     renderAuthSection() {
         const className = "uk-padding-small uk-padding-remove-vertical";
 
@@ -35,7 +36,7 @@ class Header extends React.Component {
         );
     }
 
-    render () {
+    render() {
         return (
             <header className="header">
                 <nav className="uk-navbar-container uk-navbar-transparent" data-uk-navbar="mode:click">
@@ -62,4 +63,5 @@ class Header extends React.Component {
     }
 }
 
-export default connect(mapStateToProps, { fetchUser })(Header);
+
+export const Header = connect(mapStateToProps, { fetchUser })(HeaderComponent);

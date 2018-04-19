@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { connect } from "react-redux";
 
-import Header from "./Header";
-import Footer from "./Footer";
+import { Header } from "./Header";
+import { Footer } from "./Footer";
 import { Landing } from "./Landing";
 import { NoMatch } from "./NoMatch";
 import { SideMenu } from "./SideMenu";
@@ -11,6 +11,7 @@ import { SideMenu } from "./SideMenu";
 import { fetchUser } from "../actions/auth";
 
 import '../style/App.css';
+import { Profile } from "../pages/Profile";
 
 
 const mapStateToProps = ({ auth }) => {
@@ -36,6 +37,7 @@ class App extends Component {
                     <main className="main uk-container uk-margin-top uk-width-2-3@l uk-width-4-5@m">
                         <Switch>
                             <Route exact path="/" render={() => <Landing {...this.props}/>}/>
+                            <Route path="/profile" component={Profile}/>
                             <Route component={NoMatch}/>
                         </Switch>
                     </main>
