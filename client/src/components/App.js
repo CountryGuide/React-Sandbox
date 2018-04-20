@@ -14,18 +14,14 @@ import '../style/App.css';
 import { Profile } from "../pages/Profile";
 
 
-const mapStateToProps = ({ auth }) => {
-    return auth;
-};
+// const mapStateToProps = ({ auth }) => {
+//     return auth;
+// };
 
 
 class App extends Component {
     componentDidMount() {
         this.props.fetchUser();
-    }
-
-    shouldComponentUpdate(nextProps) {
-        return JSON.stringify(nextProps) !== JSON.stringify(this.props);
     }
 
     render() {
@@ -36,7 +32,7 @@ class App extends Component {
                     <Header/>
                     <main className="main uk-container uk-margin-top uk-width-2-3@l uk-width-4-5@m">
                         <Switch>
-                            <Route exact path="/" render={() => <Landing {...this.props}/>}/>
+                            <Route exact path="/" component={Landing}/>
                             <Route path="/profile" component={Profile}/>
                             <Route component={NoMatch}/>
                         </Switch>
@@ -50,4 +46,4 @@ class App extends Component {
 }
 
 
-export default connect(mapStateToProps, { fetchUser })(App);
+export default connect(null, { fetchUser })(App);

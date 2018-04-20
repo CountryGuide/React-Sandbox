@@ -17,7 +17,7 @@ class HeaderComponent extends React.Component {
 
         if (this.props.authState) {
             return (
-                <a href={"/api/logout"} className={className} onClick={() => localStorage.removeItem('user')}>
+                <a href={"/api/logout"} className={className} onClick={() => localStorage.clear()}>
                     <div className="uk-flex uk-flex-middle">
                         <span data-uk-icon="sign-out" className="uk-margin-small-right uk-margin-small-left"></span>
                         Logout

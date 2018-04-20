@@ -45,6 +45,7 @@ app.use(passport.session());
 
 require('./routes/index')(app);
 require('./routes/auth')(app);
+require('./routes/users')(app);
 require('./routes/posts')(app);
 
 if (process.env.NODE_ENV === 'production') {
