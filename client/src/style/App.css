@@ -11,7 +11,7 @@
     background-color: #666;
 }
 
-@media screen and (max-width: 321px) {
+@media (max-width: 321px) {
     html {
         font-size: 12px;
     }
