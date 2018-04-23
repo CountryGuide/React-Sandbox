@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import { Header } from "./Header";
 import { Footer } from "./Footer";
-import { Landing } from "./Landing";
+import { Landing } from "../pages/Landing";
 import { NoMatch } from "./NoMatch";
 import { SideMenu } from "./SideMenu";
 
@@ -12,6 +12,7 @@ import { fetchUser } from "../actions/auth";
 
 import '../style/App.css';
 import { Profile } from "../pages/Profile";
+import { logRender } from "../utils/logger";
 
 
 // const mapStateToProps = ({ auth }) => {
@@ -25,7 +26,7 @@ class App extends Component {
     }
 
     render() {
-        console.log('<App /> render', this.props);
+        logRender(this);
         return (
             <BrowserRouter>
                 <div className="app-container uk-light">

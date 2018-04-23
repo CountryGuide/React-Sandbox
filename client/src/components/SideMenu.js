@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import '../style/Aside.css';
 import { connect } from "react-redux";
+import { logRender } from "../utils/logger";
 
 
 const mapStateToProps = ({ auth }) => {
@@ -20,24 +21,26 @@ const RenderAuth = props => {
 
 const MenuItem = props => {
     return (
-        <div className="uk-flex uk-flex-center uk-flex-middle">
-            <Link to={props.path} className="uk-logo uk-navbar-item">
+        <li className="uk-padding-remove-top">
+            <Link to={props.path} className="uk-text-center side-menu__item">
                 <span data-uk-icon={props.icon}></span>
             </Link>
-        </div>
+        </li>
     )
 };
 
 export class SideMenuComponent extends React.Component {
-    render() {
-        console.log('<SideMenu /> render', this.props);
+    render () {
+        logRender(this);
         return (
             <aside className="side-menu">
-                <MenuItem icon="home" path="/"/>
-                <RenderAuth component={<MenuItem icon="user" path="/profile"/>} {...this.props}/>
-                <MenuItem icon="cloud-upload" path="/"/>
-                <MenuItem icon="github-alt" path="/"/>
-                <MenuItem icon="database" path="/"/>
+                <ul className="uk-iconnav uk-iconnav-vertical uk-margin-remove-top">
+                    <MenuItem icon="home" path="/"/>
+                    <RenderAuth component={<MenuItem icon="user" path="/profile"/>} {...this.props}/>
+                    <MenuItem icon="cloud-upload" path="/"/>
+                    <MenuItem icon="github-alt" path="/"/>
+                    <MenuItem icon="database" path="/"/>
+                </ul>
             </aside>
         );
     }

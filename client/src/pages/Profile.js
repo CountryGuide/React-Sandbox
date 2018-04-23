@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from "react-redux";
 import requireAuth from "../HOCs/requireAuth";
+import { fetchUser } from "../actions/auth";
+import { logRender } from "../utils/logger";
 
 
 const mapStateToProps = ({ auth }) => {
     return auth;
 };
-
 
 export class ProfileComponent extends React.Component {
     constructor(props) {
@@ -15,8 +16,12 @@ export class ProfileComponent extends React.Component {
         this.updatedAt = new Date(this.props.authState.updatedAt);
     }
 
-    render() {
-        console.log(this.createdAt.toLocaleString('ru-RU'));
+    componentDidMount () {
+        this.props.fetchUser();
+    }
+
+    render () {
+        logRender(this);
         return (
             <div>
                 <h1 className="uk-heading-line uk-text-center">
@@ -52,5 +57,4 @@ export class ProfileComponent extends React.Component {
     }
 }
 
-
-export const Profile = connect(mapStateToProps, null)(requireAuth(ProfileComponent));
+export const Profile = connect(mapStateToProps, { fetchUser })(requireAuth(ProfileComponent));
