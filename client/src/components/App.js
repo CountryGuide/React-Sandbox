@@ -15,11 +15,6 @@ import { Profile } from "../pages/Profile";
 import { logRender } from "../utils/logger";
 
 
-// const mapStateToProps = ({ auth }) => {
-//     return auth;
-// };
-
-
 class App extends Component {
     componentDidMount() {
         this.props.fetchUser();

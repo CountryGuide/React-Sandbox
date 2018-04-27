@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import requireAuth from "../HOCs/requireAuth";
 import { fetchUser } from "../actions/auth";
 import { logRender } from "../utils/logger";
+import { Helmet } from "react-helmet";
 
 
 const mapStateToProps = ({ auth }) => {
@@ -24,6 +25,9 @@ export class ProfileComponent extends React.Component {
         logRender(this);
         return (
             <div>
+                <Helmet>
+                    <title>IVY: {this.props.authState.displayName}</title>
+                </Helmet>
                 <h1 className="uk-heading-line uk-text-center">
                     <span>Profile</span>
                 </h1>

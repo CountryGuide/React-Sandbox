@@ -2,6 +2,7 @@ import React from 'react';
 
 import { months } from '../utils/datetime';
 import { connect } from "react-redux";
+import { Helmet } from "react-helmet";
 
 
 const mapStateToProps = ({ auth }) => {
@@ -24,6 +25,9 @@ class LandingComponent extends React.Component {
     render() {
         return (
             <div>
+                <Helmet>
+                    <title>IVY</title>
+                </Helmet>
                 <div>
                     <h1 className="uk-heading-line uk-text-center">
                         <span>Welcome</span>
