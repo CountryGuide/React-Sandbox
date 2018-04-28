@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { connect } from "react-redux";
 
-import { Header } from "./Header";
-import { Footer } from "./Footer";
-import { Landing } from "../pages/Landing";
-import { NoMatch } from "./NoMatch";
-import { SideMenu } from "./SideMenu";
+import { Landing } from "./pages/Landing";
+import { Profile } from "./pages/Profile";
+import { TODO } from "./pages/TODO";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
+import { NoMatch } from "./components/NoMatch";
+import { SideMenu } from "./components/SideMenu";
 
-import { fetchUser } from "../actions/auth";
+import { fetchUser } from "./actions/auth";
+import { logRender } from "./utils/logger";
 
-import '../style/App.css';
-import { Profile } from "../pages/Profile";
-import { logRender } from "../utils/logger";
+import './style/App.css';
 
 
 class App extends Component {
@@ -30,6 +31,7 @@ class App extends Component {
                         <Switch>
                             <Route exact path="/" component={Landing}/>
                             <Route path="/profile" component={Profile}/>
+                            <Route path="/todo" component={TODO}/>
                             <Route component={NoMatch}/>
                         </Switch>
                     </main>

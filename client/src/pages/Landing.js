@@ -9,7 +9,7 @@ const mapStateToProps = ({ auth }) => {
     return auth;
 };
 
-class LandingComponent extends React.Component {
+class LandingPage extends React.Component {
     constructor(props) {
         super(props);
         this.date  = new Date();
@@ -58,4 +58,4 @@ class LandingComponent extends React.Component {
     }
 }
 
-export const Landing =  connect(mapStateToProps, null)(LandingComponent);
+export const Landing =  connect(mapStateToProps, null)(LandingPage);

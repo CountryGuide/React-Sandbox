@@ -12,7 +12,7 @@ const keys          = require('./config/keys');
 
 
 require('./models/User');
-require('./models/Post');
+require('./models/TODO');
 require('./services/passport');
 require('./services/cache');
 
@@ -46,7 +46,7 @@ app.use(passport.session());
 require('./routes/index')(app);
 require('./routes/auth')(app);
 require('./routes/users')(app);
-require('./routes/posts')(app);
+require('./routes/todos')(app);
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, 'client', 'build')));

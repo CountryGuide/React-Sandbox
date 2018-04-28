@@ -4,7 +4,7 @@ import UIkit from 'uikit';
 import 'uikit/dist/css/uikit.min.css';
 import 'uikit/dist/js/uikit.min';
 import Icons from 'uikit/dist/js/uikit-icons.min';
-import App from './components/App';
+import App from './App';
 // import registerServiceWorker from './registerServiceWorker';
 import axios from 'axios';
 import reduxThunk from 'redux-thunk';

@@ -10,7 +10,7 @@ const mapStateToProps = ({ auth }) => {
     return auth;
 };
 
-export class ProfileComponent extends React.Component {
+export class ProfilePage extends React.Component {
     constructor(props) {
         super(props);
         this.createdAt = new Date(this.props.authState.createdAt);
@@ -61,4 +61,4 @@ export class ProfileComponent extends React.Component {
     }
 }
 
-export const Profile = connect(mapStateToProps, { fetchUser })(requireAuth(ProfileComponent));
+export const Profile = connect(mapStateToProps, { fetchUser })(requireAuth(ProfilePage));
