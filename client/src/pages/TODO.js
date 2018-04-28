@@ -12,11 +12,13 @@ function mapStateToProps({ todos }) {
 
 function renderTODO(todo) {
     return (
-        <li key={todo._id}>
+        <li key={todo._id} className="uk-position-relative">
             <label className="uk-form-label">
                 <input type="checkbox" className="uk-checkbox"/>
                 <span className="uk-text-uppercase uk-margin-small-left">{todo.title}</span>
             </label>
+            <p>{todo.content}</p>
+            <span data-uk-icon="trash" className="uk-position-top-right uk-position-small"></span>
         </li>
     );
 }
@@ -41,6 +43,9 @@ class TODOPage extends React.Component {
                     this.props.todosList &&
                     <ul className="uk-list uk-list-divider">
                         {this.props.todosList.map(renderTODO)}
+                        <li>
+                            <button className="uk-button uk-button-default uk-button-small">Add</button>
+                        </li>
                     </ul>
                 }
             </div>
