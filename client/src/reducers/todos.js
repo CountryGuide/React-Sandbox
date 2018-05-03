@@ -8,10 +8,6 @@ export function todos(state = { todosList: [] }, action) {
                 ...state,
                 todosList: action.payload.todos || []
             };
-        case ActionTypes.NEW_TODO:
-            return {
-                ...state
-            };
         default:
             return state;
     }

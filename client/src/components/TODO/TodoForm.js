@@ -3,6 +3,7 @@ import { Field, reduxForm } from "redux-form";
 import { FIELDS } from "./formFields";
 import { Link } from "react-router-dom";
 import { TodoField } from "./TodoField";
+import { logRender } from "../../utils/logger";
 
 
 class TodoFormComponent extends Component {
@@ -15,10 +16,12 @@ class TodoFormComponent extends Component {
     }
 
     render() {
+        logRender(this);
         return (
             <div>
-                <form onSubmit={this.props.handleSubmit(this.props.onTodoSubmit)}>
-                    <legend>
+                <form onSubmit={this.props.handleSubmit(this.props.onTodoSubmit)}
+                      className="uk-form-stacked">
+                    <legend className="uk-legend">
                         New TODO
                     </legend>
                     {this.renderFields()}

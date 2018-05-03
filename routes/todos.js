@@ -93,7 +93,9 @@ module.exports = app => {
 
             try {
                 await todo.save();
-                res.send(todo);
+                const todos = await TODO.find({ _user: req.user.id });
+
+                res.send(todos);
             } catch (err) {
                 res.status(400).send(err);
             }

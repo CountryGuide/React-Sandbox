@@ -1,23 +1,15 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 
 
-class TodoFieldComponent extends Component {
-    render() {
-        return (
-            <div>
-
-            </div>
-        );
-    }
-}
-
-
-function mapStateToProps(state) {
-    return {};
-}
-
-export const TodoField = connect(
-    mapStateToProps,
-)(TodoFieldComponent);
-
+export const TodoField = ({ input, label, meta: { error, touched, active } }) => {
+    return (
+        <div>
+            <label>
+                <span className="uk-form-label">{label}</span>
+                <div className="uk-form-controls">
+                    <input className="uk-input uk-form-small" {...input}/>
+                </div>
+            </label>
+        </div>
+    );
+};

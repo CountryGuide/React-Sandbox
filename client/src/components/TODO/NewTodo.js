@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { TodoFormReview } from "./TodoFormReview";
 import { TodoForm } from "./TodoForm";
 import { reduxForm } from "redux-form";
+import { logRender } from "../../utils/logger";
 
 
 class NewTodoComponent extends Component {
@@ -16,6 +17,7 @@ class NewTodoComponent extends Component {
     }
 
     render() {
+        logRender(this);
         return (
             <div>
                 {this.renderContent()}

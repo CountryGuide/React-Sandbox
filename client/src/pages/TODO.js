@@ -2,7 +2,7 @@ import React from 'react';
 import requireAuth from "../HOCs/requireAuth";
 import { connect } from "react-redux";
 import { Helmet } from "react-helmet";
-import { createTodo, fetchTodos } from "../actions/todos";
+import { fetchTodos } from "../actions/todos";
 import { logRender } from "../utils/logger";
 import { Link, Route } from "react-router-dom";
 import { NewTodo } from "../components/TODO/NewTodo";
@@ -56,9 +56,9 @@ class TODOPage extends React.Component {
                         {this.props.todosList.map(renderTODO)}
                     </ul>
                 }
-                <Link className="uk-button uk-button-default uk-button-small" to="/todos/new">
-                    Add
-                </Link>
+                <Route exact path="/todos" render={() => {
+                    return <Link className="uk-button uk-button-default uk-button-small" to="/todos/new">Add</Link>
+                }}/>
                 <Route path="/todos/new" component={NewTodo}/>
             </div>
         );
@@ -66,4 +66,4 @@ class TODOPage extends React.Component {
 }
 
 
-export const TODO = connect(mapStateToProps, { fetchTodos, createTodo })(requireAuth(TODOPage));
+export const TODO = connect(mapStateToProps, { fetchTodos })(requireAuth(TODOPage));
