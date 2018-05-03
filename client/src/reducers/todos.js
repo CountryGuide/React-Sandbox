@@ -6,7 +6,13 @@ export function todos(state = { todosList: [] }, action) {
         case ActionTypes.FETCH_TODOS:
             return {
                 ...state,
-                todosList: action.payload.todos || []
+                todosList: action.payload.todos || [],
+                todoDeleted: false
+            };
+        case ActionTypes.DELETE_TODO:
+            return {
+                ...state,
+                todoDeleted: true
             };
         default:
             return state;

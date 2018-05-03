@@ -14,3 +14,9 @@ export const createTodo = (body, history) => async dispatch => {
 
     dispatch({ type: ActionTypes.FETCH_TODOS, payload: { todos } });
 };
+
+export const deleteTodo = (id) => async dispatch => {
+    await axios.delete(`/api/todos/${id}`);
+
+    dispatch({ type: ActionTypes.DELETE_TODO })
+};
