@@ -39,7 +39,7 @@ export class SideMenuComponent extends React.Component {
                     <RenderAuth component={<MenuItem icon="user" path="/profile"/>} {...this.props}/>
                     <MenuItem icon="cloud-upload" path="/"/>
                     <MenuItem icon="github-alt" path="/"/>
-                    <RenderAuth component={<MenuItem icon="database" path="/todo"/>} {...this.props}/>
+                    <RenderAuth component={<MenuItem icon="database" path="/todos"/>} {...this.props}/>
                 </ul>
             </aside>
         );

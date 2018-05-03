@@ -31,7 +31,7 @@ class App extends Component {
                         <Switch>
                             <Route exact path="/" component={Landing}/>
                             <Route path="/profile" component={Profile}/>
-                            <Route path="/todo" component={TODO}/>
+                            <Route path="/todos" component={TODO}/>
                             <Route component={NoMatch}/>
                         </Switch>
                     </main>

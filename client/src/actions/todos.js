@@ -7,3 +7,9 @@ export const fetchTodos = () => async dispatch => {
 
     dispatch({ type: ActionTypes.FETCH_TODOS, payload: { todos } });
 };
+
+export const createTodo = (body) => async dispatch => {
+    await axios.post('/api/todos', { data: body });
+
+    dispatch({ type: ActionTypes.NEW_TODO });
+};

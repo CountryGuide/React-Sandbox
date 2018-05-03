@@ -95,7 +95,7 @@ module.exports = app => {
                 await todo.save();
                 res.send(todo);
             } catch (err) {
-                res.send(400, err);
+                res.status(400).send(err);
             }
         }
     );

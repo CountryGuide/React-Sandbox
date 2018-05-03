@@ -3,8 +3,14 @@ const { Schema } = mongoose;
 
 
 const todoSchema = new Schema({
-    title: String,
-    content: String,
+    title: {
+        type: String,
+        required: true
+    },
+    content: {
+        type: String,
+        required: true
+    },
     done: {
         type: Boolean,
         default: false
