@@ -33,7 +33,7 @@ class LandingPage extends React.Component {
                         <span>Welcome</span>
                     </h1>
                 </div>
-                <div className="uk-card uk-card-default uk-border-rounded">
+                <div className="uk-card uk-card-default uk-card-small uk-border-rounded">
                     <div className="uk-card-header">
                         <h2 className="uk-card-title uk-margin-remove-bottom">
                             {this.greet(this.props.authState && this.props.authState.displayName)}
