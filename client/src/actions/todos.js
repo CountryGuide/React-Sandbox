@@ -20,3 +20,9 @@ export const deleteTodo = (id) => async dispatch => {
 
     dispatch({ type: ActionTypes.DELETE_TODO })
 };
+
+export const todoChecked = (id, checked) => async dispatch => {
+    dispatch({ type: ActionTypes.TODO_CHECKED, payload: { todoChecked: id } });
+
+    await axios.patch(`/api/todos/${id}`, { done: checked });
+};

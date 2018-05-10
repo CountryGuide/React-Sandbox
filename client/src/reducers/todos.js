@@ -14,6 +14,18 @@ export function todos(state = { todosList: [] }, action) {
                 ...state,
                 todoDeleted: true
             };
+        case ActionTypes.TODO_CHECKED:
+            return {
+                ...state,
+                todosList: state.todosList.map(todo => {
+                    if (todo._id === action.payload.todoChecked) {
+                        todo.done = !todo.done;
+                    }
+
+                    return todo;
+                }),
+                todoChecked: true
+            };
         default:
             return state;
     }
