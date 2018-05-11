@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from "redux-form";
 import { FIELDS } from "./formFields";
 import { Link } from "react-router-dom";
-import { TodoField } from "./TodoField";
+import { TaskField } from "./TaskField";
 import { logRender } from "../../utils/logger";
 
 
-class TodoFormComponent extends Component {
+class TaskFormComponent extends Component {
     renderFields() {
         return FIELDS.map(({ label, name }, i) => {
             return (
-                <Field component={TodoField} type="text" label={label} name={name} key={i}/>
+                <Field component={TaskField} type="text" label={label} name={name} key={i}/>
             )
         });
     }
@@ -19,13 +19,13 @@ class TodoFormComponent extends Component {
         logRender(this);
         return (
             <div>
-                <form onSubmit={this.props.handleSubmit(this.props.onTodoSubmit)}
+                <form onSubmit={this.props.handleSubmit(this.props.onTaskSubmit)}
                       className="uk-form-stacked">
                     <legend className="uk-legend">
-                        New TODO
+                        New Task
                     </legend>
                     {this.renderFields()}
-                    <Link to="/todos" className="uk-button uk-button-default uk-button-small">
+                    <Link to="/tasks" className="uk-button uk-button-default uk-button-small">
                         Cancel
                     </Link>
                     <button type={'submit'} className="uk-button uk-button-primary uk-button-small">
@@ -38,7 +38,7 @@ class TodoFormComponent extends Component {
 }
 
 
-export const TodoForm = reduxForm({
-    form:             'todoForm',
+export const TaskForm = reduxForm({
+    form:             'taskForm',
     destroyOnUnmount: false
-})(TodoFormComponent);
+})(TaskFormComponent);

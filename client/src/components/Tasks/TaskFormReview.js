@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { FIELDS } from "./formFields";
 import { logRender } from "../../utils/logger";
 import { withRouter } from "react-router-dom";
-import { createTodo } from "../../actions/todos";
+import { createTask } from "../../actions/tasks";
 
 
-class TodoFormReviewComponent extends Component {
+class TaskFormReviewComponent extends Component {
     renderFields() {
         return FIELDS.map((field, i) => {
             return (
@@ -32,8 +32,8 @@ class TodoFormReviewComponent extends Component {
                     </button>
                     <button
                         className="uk-button uk-button-primary uk-button-small"
-                        onClick={() => this.props.createTodo(this.props.formValues, this.props.history)}>
-                        Send Survey
+                        onClick={() => this.props.createTask(this.props.formValues, this.props.history)}>
+                        Add task
                     </button>
                 </div>
             </div>
@@ -43,11 +43,11 @@ class TodoFormReviewComponent extends Component {
 
 
 function mapStateToProps({ form }) {
-    return { formValues: form.todoForm.values };
+    return { formValues: form.taskForm.values };
 }
 
-export const TodoFormReview = connect(
+export const TaskFormReview = connect(
     mapStateToProps,
-    { createTodo }
-)(withRouter(TodoFormReviewComponent));
+    { createTask: createTask }
+)(withRouter(TaskFormReviewComponent));
 

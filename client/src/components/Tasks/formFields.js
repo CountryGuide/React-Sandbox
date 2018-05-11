@@ -1,10 +1,10 @@
 export const FIELDS = [
     {
-        label: 'Todo title',
+        label: 'Task title',
         name: 'title'
     },
     {
-        label: 'Todo content',
+        label: 'Task content',
         name: 'content'
     }
 ];

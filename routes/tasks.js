@@ -2,51 +2,51 @@ const mongoose     = require('mongoose');
 const requireLogin = require('../middlewares/requireLogin');
 
 
-const TODO = mongoose.model('todos');
+const Task = mongoose.model('tasks');
 
 module.exports = app => {
     app.get(
-        '/api/todos',
+        '/api/tasks',
         requireLogin,
         async (req, res) => {
-            const todos = await TODO.find({ _user: req.user.id });
+            const tasks = await Task.find({ _user: req.user.id });
 
-            res.send(todos);
+            res.send(tasks);
         }
     );
 
     app.get(
-        '/api/todos/:id',
+        '/api/tasks/:id',
         requireLogin,
         async (req, res) => {
-            const todo = await TODO.findById(req.params.id);
+            const task = await Task.findById(req.params.id);
 
-            if (!todo) {
+            if (!task) {
                 res.sendStatus(404);
                 return;
             }
 
-            res.send(todo);
+            res.send(task);
         }
     );
 
     app.delete(
-        '/api/todos/:id',
+        '/api/tasks/:id',
         requireLogin,
         async (req, res) => {
-            const todo = await TODO.findById(req.params.id);
+            const task = await Task.findById(req.params.id);
 
-            await todo.remove();
+            await task.remove();
 
             res.sendStatus(204);
         }
     );
 
     app.patch(
-        '/api/todos/:id',
+        '/api/tasks/:id',
         requireLogin,
         async (req, res) => {
-            const todo = await TODO.findById(req.params.id);
+            const task = await Task.findById(req.params.id);
             let changed;
 
             const {
@@ -55,23 +55,23 @@ module.exports = app => {
                       done = false
                   } = req.body;
 
-            if (title && title !== todo.title) {
+            if (title && title !== task.title) {
                 changed = true;
-                todo.set({ title });
+                task.set({ title });
             }
 
-            if (content && content !== todo.content) {
+            if (content && content !== task.content) {
                 changed = true;
-                todo.set({ content });
+                task.set({ content });
             }
 
-            if (done !== todo.done) {
+            if (done !== task.done) {
                 changed = true;
-                todo.set({ done });
+                task.set({ done });
             }
 
             if (changed) {
-                await todo.save();
+                await task.save();
             }
 
             res.sendStatus(204);
@@ -79,12 +79,12 @@ module.exports = app => {
     );
 
     app.post(
-        '/api/todos',
+        '/api/tasks',
         requireLogin,
         async (req, res) => {
             const { title, content, done = false } = req.body;
 
-            const todo = new TODO({
+            const task = new Task({
                 title,
                 content,
                 done,
@@ -92,10 +92,10 @@ module.exports = app => {
             });
 
             try {
-                await todo.save();
-                const todos = await TODO.find({ _user: req.user.id });
+                await task.save();
+                const tasks = await Task.find({ _user: req.user.id });
 
-                res.send(todos);
+                res.send(tasks);
             } catch (err) {
                 res.status(400).send(err);
             }

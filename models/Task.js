@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 
-const todoSchema = new Schema({
+const taskSchema = new Schema({
     title: {
         type: String,
         required: true
@@ -20,4 +20,4 @@ const todoSchema = new Schema({
     timestamps: true
 });
 
-mongoose.model('todos', todoSchema);
+mongoose.model('tasks', taskSchema);

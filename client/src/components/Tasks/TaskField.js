@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export const TodoField = ({ input, label, meta: { error, touched, active } }) => {
+export const TaskField = ({ input, label, meta: { error, touched, active } }) => {
     return (
         <div>
             <label>

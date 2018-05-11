@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import { Landing } from "./pages/Landing";
 import { Profile } from "./pages/Profile";
-import { TODO } from "./pages/TODO";
+import { Tasks } from "./pages/Tasks";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { NoMatch } from "./components/NoMatch";
@@ -31,7 +31,7 @@ class App extends Component {
                         <Switch>
                             <Route exact path="/" component={Landing}/>
                             <Route path="/profile" component={Profile}/>
-                            <Route path="/todos" component={TODO}/>
+                            <Route path="/tasks" component={Tasks}/>
                             <Route component={NoMatch}/>
                         </Switch>
                     </main>
