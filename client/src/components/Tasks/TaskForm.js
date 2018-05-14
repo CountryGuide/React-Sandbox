@@ -25,12 +25,14 @@ class TaskFormComponent extends Component {
                         New Task
                     </legend>
                     {this.renderFields()}
-                    <Link to="/tasks" className="uk-button uk-button-default uk-button-small">
-                        Cancel
-                    </Link>
-                    <button type={'submit'} className="uk-button uk-button-primary uk-button-small">
-                        Next
-                    </button>
+                    <div className="uk-padding-small uk-padding-remove-horizontal uk-flex uk-flex-between">
+                        <Link to="/tasks" className="uk-button uk-button-default uk-button-small">
+                            Cancel
+                        </Link>
+                        <button type={'submit'} className="uk-button uk-button-primary uk-button-small">
+                            Next
+                        </button>
+                    </div>
                 </form>
             </div>
         );
@@ -38,7 +40,21 @@ class TaskFormComponent extends Component {
 }
 
 
+function validate(values) {
+    const errors = {};
+
+    FIELDS.forEach(({ name }) => {
+        if (!values[name]) {
+            errors[name] = `${name} is required`;
+        }
+    });
+
+    return errors;
+}
+
+
 export const TaskForm = reduxForm({
     form:             'taskForm',
+    validate,
     destroyOnUnmount: false
 })(TaskFormComponent);
