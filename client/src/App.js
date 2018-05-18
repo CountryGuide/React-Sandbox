@@ -7,6 +7,7 @@ import { Profile } from "./pages/Profile";
 import { Tasks } from "./pages/Tasks";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
+import { Purchases } from "./pages/Purchases";
 import { NoMatch } from "./components/NoMatch";
 import { SideMenu } from "./components/SideMenu";
 
@@ -32,6 +33,7 @@ class App extends Component {
                             <Route exact path="/" component={Landing}/>
                             <Route path="/profile" component={Profile}/>
                             <Route path="/tasks" component={Tasks}/>
+                            <Route path="/purchases" component={Purchases}/>
                             <Route component={NoMatch}/>
                         </Switch>
                     </main>

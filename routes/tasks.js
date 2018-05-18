@@ -97,7 +97,7 @@ module.exports = app => {
 
                 res.send(tasks);
             } catch (err) {
-                res.status(400).send(err);
+                res.status(400).send(err.message);
             }
         }
     );

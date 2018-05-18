@@ -10,8 +10,7 @@ export const TaskField = ({ input, label, meta: { touched, error, active } }) =>
                     <input
                         className="uk-input uk-form-small"
                         {...input}/>
-                    <span
-                        className="uk-text-danger">{(touched && error && !active && error) || null}</span>
+                    <span className="uk-text-danger">{(touched && error && !active && error) || null}</span>
                 </div>
             </label>
         </div>

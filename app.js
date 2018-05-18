@@ -13,6 +13,7 @@ const keys          = require('./config/keys');
 
 require('./models/User');
 require('./models/Task');
+require('./models/Purchase');
 require('./services/passport');
 require('./services/cache');
 
@@ -35,7 +36,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
     cookieSession({
-        maxAge: 30 * 24 * 3600 * 1000,
+        maxAge: 24 * 3600 * 1000,
         keys:   [keys.cookieKey]
     })
 );
@@ -47,6 +48,7 @@ require('./routes/index')(app);
 require('./routes/auth')(app);
 require('./routes/users')(app);
 require('./routes/tasks')(app);
+require('./routes/purchases')(app);
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, 'client', 'build')));

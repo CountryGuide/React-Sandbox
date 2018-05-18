@@ -73,10 +73,10 @@ class TasksPage extends React.Component {
         return (
             <div>
                 <Helmet>
-                    <title>IVY: Checklist</title>
+                    <title>IVY: Tasks</title>
                 </Helmet>
                 <h1 className="uk-heading-line uk-text-center">
-                    <span>Checklist</span>
+                    <span>Tasks</span>
                 </h1>
                 {
                     this.props.taskList &&
