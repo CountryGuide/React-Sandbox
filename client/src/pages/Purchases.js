@@ -2,9 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from "react-helmet";
 import requireAuth from "../HOCs/requireAuth";
+import { fetchPurchases } from "../actions/purchases";
 
 
 class PurchasesPage extends Component {
+    componentDidMount() {
+        this.props.fetchPurchases();
+    }
+
     render() {
         return (
             <div>
@@ -20,10 +25,13 @@ class PurchasesPage extends Component {
 }
 
 
-function mapStateToProps(state) {
-    return {};
+function mapStateToProps({ purchases }) {
+    return purchases;
 }
 
 export const Purchases = connect(
     mapStateToProps,
+    {
+        fetchPurchases
+    }
 )(requireAuth(PurchasesPage));

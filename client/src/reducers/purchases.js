@@ -1,12 +1,12 @@
 import { ActionTypes } from "../actions/types";
 
 
-export function auth(state = { authState: null }, action) {
+export function purchases(state = { purchases: [] }, action) {
     switch (action.type) {
-        case ActionTypes.User.FETCH_USER:
+        case ActionTypes.Purchases.FETCH_PURCHASES:
             return {
                 ...state,
-                authState: action.payload.user || false
+                purchases: action.payload.purchases || []
             };
         default:
             return state;

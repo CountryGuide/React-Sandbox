@@ -3,18 +3,18 @@ import { ActionTypes } from "../actions/types";
 
 export function tasks(state = { taskList: [] }, action) {
     switch (action.type) {
-        case ActionTypes.FETCH_TASKS:
+        case ActionTypes.Tasks.FETCH_TASKS:
             return {
                 ...state,
                 taskList: action.payload.tasks || [],
                 taskDeleted: false
             };
-        case ActionTypes.DELETE_TASK:
+        case ActionTypes.Tasks.DELETE_TASK:
             return {
                 ...state,
                 taskDeleted: true
             };
-        case ActionTypes.TASK_CHECKED:
+        case ActionTypes.Tasks.TASK_CHECKED:
             return {
                 ...state,
                 taskList: state.taskList.map(task => {

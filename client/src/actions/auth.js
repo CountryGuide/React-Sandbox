@@ -10,6 +10,6 @@ export const fetchUser = () => async dispatch => {
         user = user.data;
 
         user && localStorage.setItem('user', JSON.stringify(user));
-        dispatch({ type: ActionTypes.FETCH_USER, payload: { user } });
+        dispatch({ type: ActionTypes.User.FETCH_USER, payload: { user } });
     }
 };
