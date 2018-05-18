@@ -20,7 +20,7 @@ class TaskFormComponent extends Component {
         return (
             <div>
                 <form onSubmit={this.props.handleSubmit(this.props.onTaskSubmit)}
-                      className="uk-form-stacked">
+                      className="uk-form-stacked new-task-form">
                     <legend className="uk-legend">
                         New Task
                     </legend>

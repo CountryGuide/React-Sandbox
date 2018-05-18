@@ -1,26 +1,17 @@
 import React from 'react';
 
 
-const displayError = (error) => {
-    return `pos: top; title: ${error}`;
-};
-
-export const TaskField = ({ input, label, meta: { error, touched, active } }) => {
+export const TaskField = ({ input, label, meta: { touched, error, active } }) => {
     return (
-        <div>
+        <div className="new-task-form__field">
             <label>
                 <span className="uk-form-label">{label}</span>
                 <div className="uk-form-controls">
                     <input
-                        className={
-                            touched && error && !active ?
-                                "uk-input uk-form-small uk-form-danger" :
-                                "uk-input uk-form-small"
-                        }
-                        data-uk-tooltip={
-                            (touched && error && !active && displayError(error)) || null
-                        }
+                        className="uk-input uk-form-small"
                         {...input}/>
+                    <span
+                        className="uk-text-danger">{(touched && error && !active && error) || null}</span>
                 </div>
             </label>
         </div>

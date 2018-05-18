@@ -7,6 +7,8 @@ import { logRender } from "../utils/logger";
 import { Link, Route } from "react-router-dom";
 import { NewTask } from "../components/Tasks/NewTask";
 
+import '../style/Tasks.css';
+
 
 function mapStateToProps({ tasks }) {
     return tasks;
@@ -52,12 +54,13 @@ class TasksPage extends React.Component {
                             {task.done ? <s>{task.title}</s> : task.title}
                         </span>
                     </label>
-                    <p>{task.content}</p>
+                    <p className="uk-margin-small">{task.content}</p>
                     <button type="button"
                             data-uk-icon="trash"
                             onClick={() => {
                                 this.props.deleteTask(task._id)
                             }}
+                            title="Delete task"
                             className="uk-position-top-right">
                     </button>
                 </li>
