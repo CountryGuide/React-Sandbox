@@ -14,6 +14,8 @@ const keys          = require('./config/keys');
 require('./models/User');
 require('./models/Task');
 require('./models/Purchase');
+require('./models/CurrencyRates');
+
 require('./services/passport');
 require('./services/cache');
 
@@ -46,6 +48,7 @@ app.use(passport.session());
 
 require('./routes/index')(app);
 require('./routes/auth')(app);
+require('./routes/currencyRates')(app);
 require('./routes/users')(app);
 require('./routes/tasks')(app);
 require('./routes/purchases')(app);
