@@ -14,7 +14,7 @@ cache:
 script:
 - npm install
 - npm run build
-before_deploy: "echo '' >> client/.gitignore"
+before_deploy: "sed -i '/\/build/d' client/.gitignore"
 deploy:
   provider: heroku
   strategy: git
