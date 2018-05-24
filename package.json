@@ -2,6 +2,7 @@
     "name": "reactapp",
     "version": "0.0.0",
     "description": "React/Node sandbox",
+    "homepage": "https://ivanyakovlev.herokuapp.com/",
     "main": "app.js",
     "engines": {
         "node": "8.9.4",
@@ -23,7 +24,6 @@
     "bugs": {
         "url": "https://github.com/CountryGuide/React-Sandbox/issues"
     },
-    "homepage": "https://github.com/CountryGuide/React-Sandbox#readme",
     "dependencies": {
         "axios": "^0.18.0",
         "body-parser": "^1.18.2",
