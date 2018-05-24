@@ -53,6 +53,7 @@ require('./routes/users')(app);
 require('./routes/tasks')(app);
 require('./routes/purchases')(app);
 
+console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, 'client', 'build')));
     app.get('*', (req, res) => {
