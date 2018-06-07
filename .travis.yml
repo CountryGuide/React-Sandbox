@@ -12,6 +12,7 @@ script:
 - npm install
 - npm run build
 before_install: "sed -e '3d' client/.gitignore"
+local_dir: client/build
 deploy:
   provider: heroku
   api_key:
