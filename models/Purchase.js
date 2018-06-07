@@ -18,6 +18,11 @@ const purchaseSchema = new Schema({
         min: 1,
         max: 4
     },
+    currency: {
+        type: String,
+        enum: ['RUB', 'USD', 'EUR'],
+        default: 'RUB'
+    },
     _user: { type: Schema.Types.ObjectId, ref: 'User' }
 }, {
     timestamps: true

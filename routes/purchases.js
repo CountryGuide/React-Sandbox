@@ -82,12 +82,13 @@ module.exports = app => {
         '/api/purchases',
         requireLogin,
         async (req, res) => {
-            const { title, price, priority } = req.body;
+            const { title, price, priority, currency } = req.body;
 
             const purchase = new Purchase({
                 title,
                 price,
                 priority,
+                currency,
                 _user: req.user.id
             });
 

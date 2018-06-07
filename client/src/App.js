@@ -12,6 +12,7 @@ import { NoMatch } from "./components/NoMatch";
 import { SideMenu } from "./components/SideMenu";
 
 import { fetchUser } from "./actions/auth";
+import { updateCurrencyRates } from "./actions/rootAction";
 import { logRender } from "./utils/logger";
 
 import './style/App.css';
@@ -20,6 +21,7 @@ import './style/App.css';
 class App extends Component {
     componentDidMount() {
         this.props.fetchUser();
+        this.props.updateCurrencyRates();
     }
 
     render() {
@@ -46,4 +48,4 @@ class App extends Component {
 }
 
 
-export default connect(null, { fetchUser })(App);
+export default connect(null, { fetchUser, updateCurrencyRates })(App);

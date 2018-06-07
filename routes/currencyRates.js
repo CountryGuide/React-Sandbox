@@ -43,14 +43,14 @@ module.exports = app => {
                 try {
                     await currencyRates.save();
 
-                    res.send(currencyRates);
+                    res.send(currencyRates.currencies);
                 } catch (err) {
                     res.status(500).send(err.message);
                 }
             } else if (currencyRatesFromDb.updatedAt.toDateString() === (new Date).toDateString()) {
                 console.log('Return value from DB');
 
-                res.send(currencyRatesFromDb);
+                res.send(currencyRatesFromDb.currencies);
             } else {
                 console.log('Update values in DB');
 
@@ -61,7 +61,7 @@ module.exports = app => {
                 try {
                     currencies = await currencyRatesFromDb.save();
 
-                    res.send(currencies);
+                    res.send(currencies.currencies);
                 } catch (err) {
                     res.status(500).send(err.message);
                 }

@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from "react-helmet";
 import requireAuth from "../HOCs/requireAuth";
-import { fetchPurchases, deletePurchase } from "../actions/purchases";
+import { deletePurchase, fetchPurchases } from "../actions/purchases";
+import { logRender } from "../utils/logger";
+import { Currency } from "../components/Currency";
 
 
 class PurchasesPage extends Component {
@@ -14,9 +16,7 @@ class PurchasesPage extends Component {
         return this.props.purchases.map(purchase => {
             return (
                 <li key={purchase._id} className="uk-position-relative">
-                    <span>
-                        {purchase.price}
-                    </span>
+                    <Currency {...purchase}/>
                     <span className="uk-text-capitalize uk-margin-small-left">
                         {purchase.title}
                     </span>
@@ -25,7 +25,7 @@ class PurchasesPage extends Component {
                             onClick={() => {
                                 this.props.deletePurchase(purchase._id)
                             }}
-                            title="Delete task"
+                            title="Delete purchase"
                             className="uk-position-top-right">
                     </button>
                 </li>
@@ -34,6 +34,7 @@ class PurchasesPage extends Component {
     }
 
     render() {
+        logRender(this);
         return (
             <div>
                 <Helmet>
@@ -54,8 +55,8 @@ class PurchasesPage extends Component {
 }
 
 
-function mapStateToProps({ purchases }) {
-    return purchases;
+function mapStateToProps({ purchases, rootReducer }) {
+    return { ...purchases, ...rootReducer };
 }
 
 export const Purchases = connect(

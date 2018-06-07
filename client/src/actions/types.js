@@ -16,5 +16,9 @@ export const ActionTypes = {
         NEW_PURCHASE:     'NEW_PURCHASE',
         PURCHASE_PATCHED: 'PURCHASE_PATCHED',
         PURCHASE_DELETED: 'PURCHASE_DELETED'
+    },
+
+    Global: {
+        UPDATE_CURRENCY_RATES: 'UPDATE_CURRENCY_RATES'
     }
 };
