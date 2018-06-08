@@ -1,25 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from "react-redux";
+
 import UIkit from 'uikit';
+import Icons from 'uikit/dist/js/uikit-icons.min';
 import 'uikit/dist/css/uikit.min.css';
 import 'uikit/dist/js/uikit.min';
-import Icons from 'uikit/dist/js/uikit-icons.min';
+
 import App from './App';
-// import registerServiceWorker from './registerServiceWorker';
-import axios from 'axios';
-import reduxThunk from 'redux-thunk';
-import { applyMiddleware, compose, createStore } from "redux";
-import { Provider } from "react-redux";
-import { reducers } from './reducers';
-import { getInitialState } from "./utils/preloadedState";
+
+import { config as configAxios } from './utils/axiosConfig';
+import { store } from './utils/storeCreator';
 
 
 UIkit.use(Icons);
-window.axios = axios;
-
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-const store = createStore(reducers, getInitialState(), composeEnhancers(applyMiddleware(reduxThunk)));
+configAxios();
 
 ReactDOM.render(
     <Provider store={store}>
@@ -27,6 +22,3 @@ ReactDOM.render(
     </Provider>,
     document.getElementById('root')
 );
-
-export {store};
-// registerServiceWorker();

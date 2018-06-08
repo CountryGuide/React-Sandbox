@@ -2,7 +2,7 @@ import React from 'react';
 
 
 class FooterComponent extends React.Component {
-    render () {
+    render() {
         return (
             <footer className="footer uk-padding-small">
                 <a href="https://github.com/CountryGuide"
@@ -16,5 +16,6 @@ class FooterComponent extends React.Component {
         );
     }
 }
+
 
 export const Footer = FooterComponent;

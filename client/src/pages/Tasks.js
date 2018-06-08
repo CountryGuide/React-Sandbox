@@ -5,9 +5,9 @@ import { Helmet } from "react-helmet";
 import { deleteTask, fetchTasks, taskChecked } from "../actions/tasks";
 import { logRender } from "../utils/logger";
 import { Link, Route } from "react-router-dom";
-import { NewTask } from "../components/Tasks/NewTask";
+import { NewTask } from "../components/NewTask";
 
-import '../style/Tasks.css';
+import '../style/Form.css';
 
 
 function mapStateToProps({ tasks }) {

@@ -9,6 +9,7 @@ export const fetchTasks = () => async dispatch => {
 };
 
 export const createTask = (body, history) => async dispatch => {
+    console.log(body);
     const { data: tasks } = await axios.post('/api/tasks', body);
     history.push('/tasks');
 

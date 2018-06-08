@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from "redux-form";
-import { FIELDS } from "./formFields";
 import { Link } from "react-router-dom";
-import { TaskField } from "./TaskField";
+import { FormField } from "./FormField";
+import { validate } from '../NewTask';
 import { logRender } from "../../utils/logger";
 
 
-class TaskFormComponent extends Component {
+class FormComponent extends Component {
     renderFields() {
-        return FIELDS.map(({ label, name }, i) => {
+        return this.props.fields.map(({ label, name }, i) => {
             return (
-                <Field component={TaskField} type="text" label={label} name={name} key={i}/>
+                <Field component={FormField} type="text" label={label} name={name} key={i}/>
             )
         });
     }
@@ -20,9 +20,10 @@ class TaskFormComponent extends Component {
         return (
             <div>
                 <form onSubmit={this.props.handleSubmit(this.props.onTaskSubmit)}
-                      className="uk-form-stacked new-task-form">
+                      className="uk-form-stacked form">
+                    TODO://
                     <legend className="uk-legend">
-                        New Task
+                        {this.props.legend}
                     </legend>
                     {this.renderFields()}
                     <div className="uk-padding-small uk-padding-remove-horizontal uk-flex uk-flex-between">
@@ -40,21 +41,8 @@ class TaskFormComponent extends Component {
 }
 
 
-function validate(values) {
-    const errors = {};
-
-    FIELDS.forEach(({ name }) => {
-        if (!values[name]) {
-            errors[name] = `${name} is required`;
-        }
-    });
-
-    return errors;
-}
-
-
-export const TaskForm = reduxForm({
+export const Form = reduxForm({
     form:             'taskForm',
     validate,
     destroyOnUnmount: false
-})(TaskFormComponent);
+})(FormComponent);

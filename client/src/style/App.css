@@ -11,12 +11,6 @@
     background-color: #666;
 }
 
-/*@media (max-width: 639px) {*/
-    /*html {*/
-        /*font-size: 12px;*/
-    /*}*/
-/*}*/
-
 .app-container {
     display: grid;
     grid-template-areas: "side-menu header" "side-menu main" "side-menu footer";

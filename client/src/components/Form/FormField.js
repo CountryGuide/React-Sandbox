@@ -1,9 +1,9 @@
 import React from 'react';
 
 
-export const TaskField = ({ input, label, meta: { touched, error, active } }) => {
+export const FormField = ({ input, label, meta: { touched, error, active } }) => {
     return (
-        <div className="new-task-form__field">
+        <div className="form__field">
             <label>
                 <span className="uk-form-label">{label}</span>
                 <div className="uk-form-controls">

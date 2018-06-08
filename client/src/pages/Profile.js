@@ -10,6 +10,7 @@ const mapStateToProps = ({ auth }) => {
     return auth;
 };
 
+
 export class ProfilePage extends React.Component {
     constructor(props) {
         super(props);
@@ -17,11 +18,11 @@ export class ProfilePage extends React.Component {
         this.updatedAt = new Date(this.props.authState.updatedAt);
     }
 
-    componentDidMount () {
+    componentDidMount() {
         this.props.fetchUser();
     }
 
-    render () {
+    render() {
         logRender(this);
         return (
             <div>
@@ -59,12 +60,14 @@ export class ProfilePage extends React.Component {
                     </div>
                     <div className="uk-card-body"></div>
                     <div className="uk-card-footer">
-                        <button className="uk-button uk-button-small uk-background-primary uk-text-primary">Change</button>
+                        <button className="uk-button uk-button-small uk-background-primary uk-text-primary">Change
+                        </button>
                     </div>
                 </div>
             </div>
         );
     }
 }
+
 
 export const Profile = connect(mapStateToProps, { fetchUser })(requireAuth(ProfilePage));

@@ -1,14 +1,14 @@
 .header .uk-navbar-item,
-.header .uk-navbar-nav>li>a,
+.header .uk-navbar-nav > li > a,
 .header .uk-navbar-toggle {
     height: 50px;
 }
 
-.header .uk-navbar-dropdown-nav>li>a {
+.header .uk-navbar-dropdown-nav > li > a {
     color: #fff;
 }
 
-.header .uk-navbar-dropdown-nav>li>a:focus,
-.header .uk-navbar-dropdown-nav>li>a:hover {
+.header .uk-navbar-dropdown-nav > li > a:focus,
+.header .uk-navbar-dropdown-nav > li > a:hover {
     color: #999;
 }

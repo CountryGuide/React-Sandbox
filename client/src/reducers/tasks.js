@@ -6,7 +6,7 @@ export function tasks(state = { taskList: [] }, action) {
         case ActionTypes.Tasks.FETCH_TASKS:
             return {
                 ...state,
-                taskList: action.payload.tasks || [],
+                taskList:    action.payload.tasks || [],
                 taskDeleted: false
             };
         case ActionTypes.Tasks.DELETE_TASK:
@@ -17,7 +17,7 @@ export function tasks(state = { taskList: [] }, action) {
         case ActionTypes.Tasks.TASK_CHECKED:
             return {
                 ...state,
-                taskList: state.taskList.map(task => {
+                taskList:    state.taskList.map(task => {
                     if (task._id === action.payload.taskChecked) {
                         task.done = !task.done;
                     }

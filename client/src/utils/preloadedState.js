@@ -1,5 +1,5 @@
 export function getInitialState() {
-    const authState = JSON.parse(localStorage.getItem('user'));
+    const authState = JSON.parse(sessionStorage.getItem('user'));
 
     return {
         auth: {

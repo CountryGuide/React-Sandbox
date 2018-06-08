@@ -29,8 +29,9 @@ const MenuItem = props => {
     )
 };
 
+
 export class SideMenuComponent extends React.Component {
-    render () {
+    render() {
         logRender(this);
         return (
             <aside className="side-menu">
@@ -44,5 +45,6 @@ export class SideMenuComponent extends React.Component {
         );
     }
 }
+
 
 export const SideMenu = connect(mapStateToProps, null)(SideMenuComponent);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { store } from '../index';
+import { store } from '../utils/storeCreator';
 
 
 const calculateCurrency = (currency, value) => {
@@ -9,7 +9,10 @@ const calculateCurrency = (currency, value) => {
     }
 
     const _currency = currencyRates.find(rate => rate.currency === currency);
-    const _value = new Intl.NumberFormat('ru', { style: 'currency', currency: 'RUB' }).format(_currency.rate * value);
+    const _value    = new Intl.NumberFormat('ru', {
+        style:    'currency',
+        currency: 'RUB'
+    }).format(_currency.rate * value);
     return `~${_value}`;
 };
 

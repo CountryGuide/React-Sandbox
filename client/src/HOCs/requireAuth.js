@@ -17,7 +17,8 @@ export default ChildComponent => {
         }
     }
 
-    function mapStateToProps ({ auth }) {
+
+    function mapStateToProps({ auth }) {
         return auth;
     }
 
