@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import { Link, Route } from "react-router-dom";
 
 import requireAuth from "../HOCs/requireAuth";
-import { deletePurchase, fetchPurchases } from "../actions/purchases";
+import { deletePurchase, fetchPurchases, createPurchase } from "../actions/purchases";
 import { logRender } from "../utils/logger";
 import { Currency } from "../components/Currency";
 import { NewPurchase } from "../components/NewPurchase";
@@ -55,7 +55,9 @@ class PurchasesPage extends Component {
                 <Route exact path="/purchases" render={() => {
                     return <Link className="uk-button uk-button-default uk-button-small" to="/purchases/new">Add</Link>
                 }}/>
-                <Route path="/purchases/new" component={NewPurchase}/>
+                <Route path="/purchases/new" render={() => {
+                    return <NewPurchase {...this.props}/>
+                }}/>
             </div>
         );
     }
@@ -70,6 +72,7 @@ export const Purchases = connect(
     mapStateToProps,
     {
         fetchPurchases,
-        deletePurchase
+        deletePurchase,
+        createPurchase
     }
 )(requireAuth(PurchasesPage));

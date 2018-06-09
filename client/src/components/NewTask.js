@@ -3,7 +3,6 @@ import { FormReview } from "./Form/FormReview";
 import { Form } from "./Form/Form";
 import { reduxForm } from "redux-form";
 import { logRender } from "../utils/logger";
-import { createTask } from '../actions/tasks';
 
 
 const FIELDS = [
@@ -17,32 +16,21 @@ const FIELDS = [
     }
 ];
 
-export function validate(values) {
-    const errors = {};
-
-    FIELDS.forEach(({ name }) => {
-        if (!values[name]) {
-            errors[name] = `${name} is required`;
-        }
-    });
-
-    return errors;
-}
-
-export const formName = 'taskForm';
 
 class NewTaskComponent extends Component {
     state = { showReview: false };
 
     renderContent() {
+        const submitFunction = this.props.createTask;
         if (this.state.showReview) {
             return <FormReview onCancel={() => this.setState({ showReview: false })}
-                               submitFunction={createTask}
                                addBtnText={'Add task'}
+                               submitFunction={submitFunction}
                                fields={FIELDS}/>
         }
 
-        return <Form onTaskSubmit={() => this.setState({ showReview: true })}
+        return <Form onFormSubmit={() => this.setState({ showReview: true })}
+                     returnLink={'/tasks'}
                      legend={'New Task'}
                      fields={FIELDS}/>
     }
@@ -57,7 +45,8 @@ class NewTaskComponent extends Component {
     }
 }
 
+
 export const NewTask = reduxForm({
-    form: formName
+    form: 'submitForm'
 })(NewTaskComponent);
 

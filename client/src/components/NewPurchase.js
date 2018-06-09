@@ -12,35 +12,29 @@ const FIELDS = [
     },
     {
         label: 'Price',
-        name:  'content'
+        name:  'price'
+    },
+    {
+        label: 'Priority',
+        name: 'priority'
     }
 ];
 
-export function validate(values) {
-    const errors = {};
 
-    FIELDS.forEach(({ name }) => {
-        if (!values[name]) {
-            errors[name] = `${name} is required`;
-        }
-    });
-
-    return errors;
-}
-
-export const formName = 'purchaseForm';
-
-class NewTaskComponent extends Component {
+class NewPurchaseComponent extends Component {
     state = { showReview: false };
 
     renderContent() {
+        const submitFunction = this.props.createPurchase;
         if (this.state.showReview) {
             return <FormReview onCancel={() => this.setState({ showReview: false })}
                                addBtnText={'Add purchase'}
+                               submitFunction={submitFunction}
                                fields={FIELDS}/>
         }
 
-        return <Form onTaskSubmit={() => this.setState({ showReview: true })}
+        return <Form onFormSubmit={() => this.setState({ showReview: true })}
+                     returnLink={'/purchases'}
                      legend={'New purchase'}
                      fields={FIELDS}/>
     }
@@ -56,7 +50,7 @@ class NewTaskComponent extends Component {
 }
 
 export const NewPurchase = reduxForm({
-    form: formName
-})(NewTaskComponent);
+    form: 'submitForm'
+})(NewPurchaseComponent);
 
 

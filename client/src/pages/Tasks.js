@@ -2,7 +2,7 @@ import React from 'react';
 import requireAuth from "../HOCs/requireAuth";
 import { connect } from "react-redux";
 import { Helmet } from "react-helmet";
-import { deleteTask, fetchTasks, taskChecked } from "../actions/tasks";
+import { createTask, deleteTask, fetchTasks, taskChecked } from "../actions/tasks";
 import { logRender } from "../utils/logger";
 import { Link, Route } from "react-router-dom";
 import { NewTask } from "../components/NewTask";
@@ -87,11 +87,13 @@ class TasksPage extends React.Component {
                 <Route exact path="/tasks" render={() => {
                     return <Link className="uk-button uk-button-default uk-button-small" to="/tasks/new">Add</Link>
                 }}/>
-                <Route path="/tasks/new" component={NewTask}/>
+                <Route path="/tasks/new" render={() => {
+                    return <NewTask {...this.props}/>
+                }}/>
             </div>
         );
     }
 }
 
 
-export const Tasks = connect(mapStateToProps, { fetchTasks, deleteTask, taskChecked })(requireAuth(TasksPage));
+export const Tasks = connect(mapStateToProps, { fetchTasks, deleteTask, taskChecked, createTask })(requireAuth(TasksPage));

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { logRender } from "../../utils/logger";
 import { withRouter } from "react-router-dom";
-import { createTask } from "../../actions/tasks";
 
 
 class FormReviewComponent extends Component {
@@ -20,6 +19,7 @@ class FormReviewComponent extends Component {
 
     render() {
         logRender(this);
+        console.clear();
         return (
             <div>
                 {this.renderFields()}
@@ -31,7 +31,7 @@ class FormReviewComponent extends Component {
                     </button>
                     <button
                         className="uk-button uk-button-primary uk-button-small"
-                        onClick={() => this.props.createTask(this.props.formValues, this.props.history)}>
+                        onClick={() => this.props.submitFunction(this.props.formValues, this.props.history)}>
                         {this.props.addBtnText}
                     </button>
                 </div>
@@ -42,11 +42,10 @@ class FormReviewComponent extends Component {
 
 
 function mapStateToProps({ form }) {
-    return { formValues: form.taskForm.values };
+    return { formValues: form.submitForm.values };
 }
 
 export const FormReview = connect(
-    mapStateToProps,
-    { createTask }
+    mapStateToProps
 )(withRouter(FormReviewComponent));
 

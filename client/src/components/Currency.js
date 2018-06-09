@@ -13,13 +13,16 @@ const calculateCurrency = (currency, value) => {
         style:    'currency',
         currency: 'RUB'
     }).format(_currency.rate * value);
+
     return `~${_value}`;
 };
 
 export const Currency = props => {
-    return (
-        <span data-uk-tooltip={`pos: top; title: ${calculateCurrency(props.currency, props.price)}`}>
-            {new Intl.NumberFormat('ru', { style: 'currency', currency: props.currency }).format(props.price)}
-        </span>
-    )
+    const value = new Intl.NumberFormat('ru', { style: 'currency', currency: props.currency }).format(props.price);
+
+    if (props.currency === 'RUB') {
+        return <span>{value}</span>;
+    }
+
+    return <span data-uk-tooltip={`pos: top; title: ${calculateCurrency(props.currency, props.price)}`}>{value}</span>;
 };
