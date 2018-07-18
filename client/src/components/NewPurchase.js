@@ -12,11 +12,24 @@ const FIELDS = [
     },
     {
         label: 'Price',
-        name:  'price'
+        name:  'price',
+        type: 'number'
+    },
+    {
+        label: 'Currency',
+        name: 'currency',
+        type: 'select',
+        options: [
+            'EUR',
+            'USD',
+            'RUB'
+        ]
     },
     {
         label: 'Priority',
-        name: 'priority'
+        name: 'priority',
+        type: 'select',
+        options: [1,2,3,4]
     }
 ];
 

@@ -19,7 +19,6 @@ class FormReviewComponent extends Component {
 
     render() {
         logRender(this);
-        console.clear();
         return (
             <div>
                 {this.renderFields()}

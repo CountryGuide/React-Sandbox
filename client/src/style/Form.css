@@ -1,3 +1,7 @@
 .form__field {
     height: 80px;
 }
+
+.form__field option {
+    color: #000;
+}

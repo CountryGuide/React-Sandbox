@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import { Link, Route } from "react-router-dom";
 
 import requireAuth from "../HOCs/requireAuth";
-import { deletePurchase, fetchPurchases, createPurchase } from "../actions/purchases";
+import { createPurchase, deletePurchase, fetchPurchases } from "../actions/purchases";
 import { logRender } from "../utils/logger";
 import { Currency } from "../components/Currency";
 import { NewPurchase } from "../components/NewPurchase";
@@ -13,6 +13,14 @@ import { NewPurchase } from "../components/NewPurchase";
 class PurchasesPage extends Component {
     componentDidMount() {
         this.props.fetchPurchases();
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        if (nextProps.purchaseDeleted) {
+            this.props.fetchPurchases();
+            return true;
+        }
+        return true;
     }
 
     renderPurchase() {

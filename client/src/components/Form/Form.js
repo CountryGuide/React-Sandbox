@@ -20,9 +20,9 @@ function validate(values, { fields }) {
 
 class FormComponent extends Component {
     renderFields() {
-        return this.props.fields.map(({ label, name }, i) => {
+        return this.props.fields.map(({ label, name, type = 'text', options = [] }, i) => {
             return (
-                <Field component={FormField} type="text" label={label} name={name} key={i}/>
+                <Field component={FormField} type={type} label={label} name={name} key={i} options={options}/>
             )
         });
     }
