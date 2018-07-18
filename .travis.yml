@@ -11,6 +11,7 @@ cache:
 script:
 - npm install
 - npm run build
+before_install: "sed -e '3d' client/.gitignore"
 deploy:
   provider: heroku
   skip_cleanup: true
